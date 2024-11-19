@@ -52,6 +52,8 @@ export default function SinglePage() {
     const mealId = parseInt(params.id);
     const meal = meals.find((meal) => meal.id === mealId);
 
+    //Ici on vient récupérer l'id qui eest en paramètre pour connaître la recette à afficher
+
     if (!meal) {
         return (
             <View>
