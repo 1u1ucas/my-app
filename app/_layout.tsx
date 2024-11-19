@@ -8,8 +8,8 @@ export default function RootLayout() {
       <Header />   
       <Stack>
         <Stack.Screen name="index" options={{ title: 'Home', headerShown: false }} />
-        <Stack.Screen name="Recette" options={{title: 'recettes', headerShown: false}}  />
-        <Stack.Screen name="Recette/[id]" options={{title: 'recette', headerShown: false}}  />
+        <Stack.Screen name="recette/index" options={{title: 'recettes', headerShown: false}}  />
+        <Stack.Screen name="recette/[id]" options={{title: 'recette', headerShown: false}}  />
       </Stack>
       <Footer />
     </>
