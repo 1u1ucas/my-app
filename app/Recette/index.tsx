@@ -5,10 +5,7 @@ import { useRouter } from 'expo-router';
 
 export default function RecettesPage() {
     const [meals, setMeals] = useState([]);
-
-    //le useState permet de déclarer une variable et de la mettre à jour 
-    //on peux aussi typer la variable ou lui mettre une valeur par défaut
-
+    
     //le useEffect permet de lancer une fonction au chargement de la page
     // on peux aussi lui passer des variables pour qu'il s'execute a chaque fois qu'une variable change
 
