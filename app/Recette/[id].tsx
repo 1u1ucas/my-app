@@ -15,11 +15,6 @@ export default function SinglePage() {
       setMeals(meals.meals[0]);
     })();
   }, []);
-  
-  if (!meals || meals.length === 0) {
-    return <Text>Loading...</Text>;
-  }
-    
 
   return (
     <ScrollView>
