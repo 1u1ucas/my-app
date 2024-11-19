@@ -11,7 +11,7 @@ export default function Index() {
 
   const handlePressallPages = () => {
       router
-      .push('recette');
+      .push('recette/search/search');
   };
 
   const handlePressSinglePage = (id: number) => {

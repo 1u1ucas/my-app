@@ -3,9 +3,9 @@ import { View, Text, ScrollView, StyleSheet, Image, FlatList, TouchableOpacity }
 import { useRouter } from 'expo-router';
 
 
-export default function RecettesPage() {
-    const [meals, setMeals] = useState([]);
-    
+export default function RecettesPage({ recepies }: { recepies: any[] }) {
+    const [meals, setMeals] = useState<any[]>([]);
+
     //le useEffect permet de lancer une fonction au chargement de la page
     // on peux aussi lui passer des variables pour qu'il s'execute a chaque fois qu'une variable change
 
@@ -17,12 +17,8 @@ export default function RecettesPage() {
     };
 
     useEffect(() => {
-        (async () => {
-          const mealsJson = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=");
-          const meals = await mealsJson.json();
-          setMeals(meals.meals);
-        })();
-      }, []);
+        setMeals(recepies);
+    },[recepies]);
 
 return (
     <View>

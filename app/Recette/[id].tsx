@@ -3,7 +3,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useState, useEffect } from 'react';
 
 export default function SinglePage() {
-  const [meals, setMeals] = useState();
+  const [meal, setMeal] = useState([]);
 
   const params =  useLocalSearchParams();
   const mealId = parseInt(params.id);
@@ -11,14 +11,14 @@ export default function SinglePage() {
   useEffect(() => {
     (async () => {
       const mealsJson = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
-      const meals = await mealsJson.json();
-      setMeals(meals.meals[0]);
+      const meal = await mealsJson.json();
+      setMeal(meal.meals[0]);
     })();
   }, []);
 
   return (
     <ScrollView>
-                  {( meals.length === 0) ? (
+                  {( meal.length === 0) ? (
         <Text>Loading...</Text>
       ) : (
         <View style={styles.container}>
