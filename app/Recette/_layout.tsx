@@ -1,17 +1,13 @@
 import { Stack } from "expo-router";
-import Header from "../parts/header";
-import Footer from "../parts/footer";
 
 export default function MealsLayout() {
   return (
-    <>
-      <Header />   
+    <>  
       <Stack>
-        <Stack.Screen name="recette/search/search" options={{title: 'recettes', headerShown: false}}  />
-        <Stack.Screen name="recette/[id]" options={{title: 'recette', headerShown: false}}  />
-        <Stack.Screen name="recette/search/[query]" options={{title: 'recette rechercher', headerShown: false}}  />
+        <Stack.Screen name="search/search" options={{title: 'recettes', headerShown: false}}  />
+        <Stack.Screen name="[id]" options={{title: 'recette', headerShown: false}}  />
+        <Stack.Screen name="search/[query]" options={{title: 'recette rechercher', headerShown: false}}  />
       </Stack>
-      <Footer />
     </>
   )
 }
