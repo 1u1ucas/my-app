@@ -17,7 +17,7 @@ export default function Index() {
 
   const handlePressSinglePage = (id: number) => {
     router
-    .push(`recette/${id}`);
+    .push(`recette/search/${id}`);
 };
 
 const handlePressRandomPage = () => {
@@ -38,7 +38,7 @@ useEffect(() => {
 
   const handleSearch = () => {
     if (search === '') {
-      router.push('recette/search/search');
+      router.push('recette/(tabs)/search');
     } else {
     router.push(`recette/search/${search}`);
     }

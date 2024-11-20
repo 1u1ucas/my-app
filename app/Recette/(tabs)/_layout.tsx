@@ -1,14 +1,13 @@
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
 
 export default function MealsLayout() {
   return (
-    <>  
-      <Stack>
-        <Stack.Screen name="id/[id]" options={{title: 'recette', headerShown: false}}  />
-        <Stack.Screen name="search/[query]" options={{title: 'recette rechercher', headerShown: false}}  />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false}}  />
-      </Stack>
-    </>
+ 
+      <Tabs>
+        <Tabs.Screen name="search" options={{title: 'recettes', headerShown: false}}  />
+        <Tabs.Screen name="random" options={{title: 'Random', headerShown: false}}  />
+      </Tabs>
+
   )
 }
 
