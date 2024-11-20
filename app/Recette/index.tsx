@@ -55,6 +55,8 @@ return (
 const styles = StyleSheet.create({
     container: {
         padding: 20,
+        marginBottom: 0,
+        height: '85%',
     },
     title: {
         fontSize: 24,

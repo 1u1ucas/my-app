@@ -1,16 +1,23 @@
 import { useEffect, useState,} from 'react';
 import {View, TextInput, Button, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import RecettesPage from '../index';
+import { useLocalSearchParams } from 'expo-router';
 
 export default function Search() {
     const [search, setSearch] = useState('');
     const [meals, setMeals] = useState([]);
 
+    const params =  useLocalSearchParams();
+    const mealQuery= params.query;
+
     useEffect(() => {
         (async () => {
-          const mealsJson = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=");
-          const meals = await mealsJson.json();
-          setMeals(meals.meals);
+            if (typeof mealQuery === 'string') {
+                setSearch(mealQuery);
+                const mealsJson = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealQuery}`);
+                const meals = await mealsJson.json();
+                setMeals(meals.meals);
+            }
         })();
       }, []);
       
@@ -28,7 +35,8 @@ export default function Search() {
         <View>
        <View style={styles.container}>
             <TextInput  style={styles.input} placeholder="Rechercher une recette" 
-            onChangeText={text => setSearch(text)}/>
+            onChangeText={text => setSearch(text)}
+            value={search}/>
             <TouchableOpacity style={styles.button} onPress={handleSearch}>
               <Text style={styles.buttonText}>Rechercher</Text>
             </TouchableOpacity>

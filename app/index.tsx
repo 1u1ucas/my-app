@@ -1,4 +1,4 @@
-import { Text, View, Image, FlatList, TouchableOpacity, ScrollView, StyleSheet, } from "react-native";
+import { Text, View, Image, FlatList, TouchableOpacity, ScrollView, StyleSheet, Button, TextInput } from "react-native";
 import { useRouter } from 'expo-router';
 import { useState, useEffect } from "react";
 
@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function Index() {
  const [meals, setMeals] = useState([]);
+ const [search, setSearch] = useState('');
 
   const router = useRouter();
 
@@ -30,6 +31,10 @@ useEffect(() => {
 
   const lastThreeMeals = meals.slice(-3);
 
+  const handleSearch = async () => {
+    router.push(`recette/search/${search}`);
+  };
+
   return (
     <ScrollView style={styles.app}>
             {(meals === null || meals.length === 0) ? (
@@ -44,6 +49,13 @@ useEffect(() => {
           <TouchableOpacity style={styles.button} onPress={handlePressallPages}>
             <Text style={styles.buttonText}>Voir toutes les recettes</Text>
           </TouchableOpacity>
+          <View style={styles.searchcontainer}>
+            <TextInput  style={styles.input} placeholder="Rechercher une recette" 
+            onChangeText={text => setSearch(text)}/>
+            <TouchableOpacity style={styles.button} onPress={handleSearch}>
+              <Text style={styles.buttonText}>Rechercher</Text>
+            </TouchableOpacity>
+        </View>
           <Text style={styles.text}>Nos recettes du jour 🍽️</Text>
           <FlatList
             data={lastThreeMeals}
@@ -85,9 +97,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
   },
+  searchcontainer: {
+    flexDirection: "column",
+    marginBottom: 20,
+    marginTop: 20,
+  },
   buttonText: {
     color: "white",
     fontSize: 15,
+  },
+  input: {
+    marginBottom: 20,
+    padding: 10,
+    backgroundColor: "#f9f9f9",
+    borderRadius: 5,
   },
   text: {
     fontSize: 20,
