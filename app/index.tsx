@@ -31,8 +31,12 @@ useEffect(() => {
 
   const lastThreeMeals = meals.slice(-3);
 
-  const handleSearch = async () => {
+  const handleSearch = () => {
+    if (search === '') {
+      router.push('recette/search/search');
+    } else {
     router.push(`recette/search/${search}`);
+    }
   };
 
   return (

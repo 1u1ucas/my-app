@@ -3,7 +3,7 @@ import {View, TextInput, Button, StyleSheet, Text, TouchableOpacity } from 'reac
 import RecettesPage from '../index';
 
 export default function Search() {
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(' ');
     const [meals, setMeals] = useState([]);
 
     useEffect(() => {
