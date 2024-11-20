@@ -20,6 +20,11 @@ export default function Index() {
     .push(`recette/${id}`);
 };
 
+const handlePressRandomPage = () => {
+  router
+  .push('recette/random');
+}
+
 
 useEffect(() => {
   (async () => {
@@ -59,6 +64,12 @@ useEffect(() => {
             <TouchableOpacity style={styles.button} onPress={handleSearch}>
               <Text style={styles.buttonText}>Rechercher</Text>
             </TouchableOpacity>
+        </View>
+        <View style={styles.container}>
+          <Text style={styles.text}>Recette aléatoire 🎲</Text>
+          <TouchableOpacity style={styles.button} onPress={handlePressRandomPage}>
+            <Text style={styles.buttonText}>Voir une recette aléatoire</Text>
+          </TouchableOpacity>
         </View>
           <Text style={styles.text}>Nos recettes du jour 🍽️</Text>
           <FlatList

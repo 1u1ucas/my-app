@@ -7,6 +7,7 @@ export default function MealsLayout() {
         <Stack.Screen name="search/search" options={{title: 'recettes', headerShown: false}}  />
         <Stack.Screen name="[id]" options={{title: 'recette', headerShown: false}}  />
         <Stack.Screen name="search/[query]" options={{title: 'recette rechercher', headerShown: false}}  />
+        <Stack.Screen name="random" options={{title: 'Random', headerShown: false}}  />
       </Stack>
     </>
   )
