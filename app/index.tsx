@@ -44,6 +44,10 @@ useEffect(() => {
     }
   };
 
+  const handleParametre = () => {
+    router.push('drawer/parametre');
+  }
+
   return (
     <ScrollView style={styles.app}>
             {(meals === null || meals.length === 0) ? (
@@ -69,6 +73,12 @@ useEffect(() => {
           <Text style={styles.text}>Recette aléatoire 🎲</Text>
           <TouchableOpacity style={styles.button} onPress={handlePressRandomPage}>
             <Text style={styles.buttonText}>Voir une recette aléatoire</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.container}>
+          <Text style={styles.text}>Paramètre</Text>
+          <TouchableOpacity style={styles.button} onPress={handleParametre}>
+            <Text style={styles.buttonText}>Paramètre</Text>
           </TouchableOpacity>
         </View>
           <Text style={styles.text}>Nos recettes du jour 🍽️</Text>
