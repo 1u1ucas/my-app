@@ -6,11 +6,13 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 export default function RootLayout() {
   return (
     <GestureHandlerRootView>
+      <Header />   
       <Stack>
         <Stack.Screen name="index" options={{ title: 'Home', headerShown: false }} />
         <Stack.Screen name="recette" options={{title: 'meals', headerShown: false }} />
         <Stack.Screen name="drawer" options={{title: 'paramètre', headerShown: false }} />
       </Stack>
+      <Footer />
     </GestureHandlerRootView>
   )
 }
